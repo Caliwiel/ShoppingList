@@ -1,5 +1,7 @@
 package com.example.responsable.shoppinglist;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -78,10 +80,14 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.ma_premiere_liste) {
+            MyFirstShopList fragment = new MyFirstShopList();
+            fragmentTransaction.add(R.id.ma_premiere_liste, fragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_manage) {
